@@ -1,21 +1,44 @@
 from products import *
+from enum import Enum
 
-class Sales():
-    total_sales = 0
-    #Métodos para vender os produtos criados
-    def sale():
-        
-        total_sales += 1
-    
+class Brand(Enum):
+    NIKE = "Nike"
+    ADIDAS = "Adidas"
+    REEBOK = "Reebok"
+    COCA_COLA = "Coca-Cola"
+    PEPSI = "Pepsi"
+    NESTLE = "Nestlé"
+    LINDT = "Lindt"
+
 class Inventory():
-    #Estoque ficticio de produtos
-    pass
     
-class SalesOperationError():
-    #Erros possiveis nas operçãoes de venda
-    pass
+    #Inicia uma lista vazia 
+    def __init__(self):
+        self.inv = []
+    
+    def add_item(self,barcode,amount):
+        item = [barcode,amount]
+        self.inv.append(item)
+    
+    # Mostra o que tem no inventário
+    def summary(self):
+        print(self.inv)
+    
+    # Vende um produto
+    def sell_product(self, product):
+       if product in self.inv:
+           self.inv.remove(product)
+       else:
+           raise ProductNotFoundError("Product not found in the inventory.")
 
-kop_bar = Chocolate(45.32,"A01392","Kopenhagen","Brasil","Tablete Clássico",42,100)
-my_shoe = Shoe(450.99,"S01221",42,"Puma")
-my_bottle = Bottle(99.99,"P03444","Termolar",1000)
-print(my_bottle)
+    # Para devolver um produto    
+    def return_product(self, product):
+        self.inv.append(product)
+
+    def restock_product(self, product, quantity):
+        # Supondo que a quantidade seja adicionada ao estoque
+        for i in range(quantity):
+            self.add_item(product)
+
+class ProductNotFoundError(Exception):
+    pass

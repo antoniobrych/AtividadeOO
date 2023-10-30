@@ -8,34 +8,33 @@ class Product():
     #Ve quanto custa o produto
     def price(self):
         return self.price
-    def barcode(self):
-        return self.barcode
-
     
-
+    #Ve o codigo de barras do produto
+    def barcode(self):
+        return self.barcode       
+            
 class Shoe(Product):
     
     #A inicialização do sapato precisa do tamanho do sapato
     def __init__(self,price,barcode,size,brand):
         super().__init__(price=price,productype='Shoe',brand=brand,barcode=barcode)
         self.size = size
-        self.brand = brand
     
     def __str__(self):
-        return f"O preço do sapato com tamanho {self.size}, da marca {self.brand} é {self.price}."
-    
+        return f"O preço do sapato com tamanho {self.size}, da marca {self.brand} é {self.price}."    
     
 class Bottle(Product):
     
     #A inicialização da garrafa precisa do volume da garrafa
-    def __init__(self,price,barcode,brand,volume):
+    def __init__(self,price,barcode,brand,volum):
         super().__init__(price=price,productype='Bottle',barcode=barcode,brand=brand)
-        self.volume = volume
+        self.volum = volum
     
     def __str__(self):
-        return f"O preço da garrafa com volume {self.volume}, da marca {self.brand} é {self.price}."
-    
+        return f"O preço da garrafa com volume {self.volum}, da marca {self.brand} é {self.price}."
+        
 class Chocolate(Product):
+    
     #inicializando classe Chocolate, onde herda certas propriedades da classe Product
     def __init__(self,price,barcode,brand,origin,model,cocoa_pct,weight):
         super().__init__(price=price,productype='Chocolate Bar',barcode=barcode,brand=brand)
