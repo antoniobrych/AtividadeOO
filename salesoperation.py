@@ -1,4 +1,5 @@
-class Sales(Enum):
+class Sales():
+    total_sales = 0
     #Métodos para vender os produtos criados
 
 class Inventory():
