@@ -8,17 +8,17 @@ class Sales():
         total_sales += 1
     
 class Inventory():
-    def __init__(self,barcode,amount,inv=[]):
-        self.barcode = barcode
-        self.amount = amount
-        self.inv = inv
+    def __init__(self):
+        self.inv = []
     def add_item(self,barcode,amount):
         item = [barcode,amount]
-        item.append(inv)
+        self.inv.append(item)
     def summary(self):
-        print(inv)
+        print(self.inv)
 
-
+my_inv = Inventory()
+my_inv.add_item("A01392",21)
+my_inv.summary()
 
 class SalesOperationError():
     #Erros possiveis nas operçãoes de venda
