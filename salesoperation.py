@@ -8,9 +8,18 @@ class Sales():
         total_sales += 1
     
 class Inventory():
-    #Estoque ficticio de produtos
-    pass
-    
+    def __init__(self,barcode,amount,inv=[]):
+        self.barcode = barcode
+        self.amount = amount
+        self.inv = inv
+    def add_item(self,barcode,amount):
+        item = [barcode,amount]
+        item.append(inv)
+    def summary(self):
+        print(inv)
+
+
+
 class SalesOperationError():
     #Erros possiveis nas operçãoes de venda
     pass
